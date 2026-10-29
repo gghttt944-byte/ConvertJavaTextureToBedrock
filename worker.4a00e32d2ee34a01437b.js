@@ -318,28 +318,25 @@ module.exports = _interopRequireDefault, module.exports.__esModule = true, modul
   !*** ./node_modules/@babel/runtime/helpers/interopRequireWildcard.js ***!
   \***********************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var _typeof = __webpack_require__(/*! ./typeof.js */ "./node_modules/@babel/runtime/helpers/typeof.js")["default"];
+var cache;
 function _interopRequireWildcard(e, t) {
-  if ("function" == typeof WeakMap) var r = new WeakMap(),
-    n = new WeakMap();
-  return (module.exports = _interopRequireWildcard = function _interopRequireWildcard(e, t) {
-    if (!t && e && e.__esModule) return e;
-    var o,
-      i,
-      f = {
-        __proto__: null,
-        "default": e
-      };
-    if (null === e || "object" != _typeof(e) && "function" != typeof e) return f;
-    if (o = t ? n : r) {
-      if (o.has(e)) return o.get(e);
-      o.set(e, f);
-    }
-    for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]);
-    return f;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports)(e, t);
+  if (!t && e && e.__esModule) return e;
+  var r,
+    c,
+    a = Object.defineProperty,
+    n = {
+      __proto__: null,
+      "default": e
+    };
+  if (Object(e) !== e) return n;
+  if (cache || "function" != typeof WeakMap || (cache = new WeakMap()), cache) {
+    if (cache.has(e)) return cache.get(e);
+    cache.set(e, n);
+  }
+  for (c in e) "default" !== c && {}.hasOwnProperty.call(e, c) && ((r = a && Object.getOwnPropertyDescriptor(e, c)) && (r.get || r.set) ? a(n, c, r) : n[c] = e[c]);
+  return n;
 }
 module.exports = _interopRequireWildcard, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
@@ -866,15 +863,15 @@ module.exports = _toConsumableArray, module.exports.__esModule = true, module.ex
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = __webpack_require__(/*! ./typeof.js */ "./node_modules/@babel/runtime/helpers/typeof.js")["default"];
-function toPrimitive(t, r) {
+function toPrimitive(t, e) {
   if ("object" != _typeof(t) || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r || "default");
+  var r;
+  if ("undefined" != typeof Symbol && void 0 !== (r = t[Symbol.toPrimitive])) {
+    var i = r.call(t, e || "default");
     if ("object" != _typeof(i)) return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return ("string" === r ? String : Number)(t);
+  return ("string" === e ? String : Number)(t);
 }
 module.exports = toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
@@ -59560,24 +59557,15 @@ class OpaqueConverter extends _modifiedcommand_convert_base_api__WEBPACK_IMPORTE
     static get DEFAULT_CONVERTER_DATA() {
         return [
             // Leaves
-			["textures/blocks/azalea_leaves.png", "textures/blocks/azalea_leaves_opaque.png"],
-			["textures/blocks/azalea_leaves_flowers.png", "textures/blocks/azalea_leaves_flowers_opaque.png"],
-			["textures/blocks/cherry_leaves.png", "textures/blocks/cherry_leaves_opaque.png"],
             ["textures/blocks/leaves_acacia.png", "textures/blocks/leaves_acacia_opaque.png"],
             ["textures/blocks/leaves_big_oak.png", "textures/blocks/leaves_big_oak_opaque.png"],
             ["textures/blocks/leaves_birch.png", "textures/blocks/leaves_birch_opaque.png"],
             ["textures/blocks/leaves_jungle.png", "textures/blocks/leaves_jungle_opaque.png"],
             ["textures/blocks/leaves_oak.png", "textures/blocks/leaves_oak_opaque.png"],
             ["textures/blocks/leaves_spruce.png", "textures/blocks/leaves_spruce_opaque.png"]
-			["textures/blocks/mangrove_leaves.png", "textures/blocks/mangrove_leaves_opaque.png"]
-			["textures/blocks/orange_poplar_leaves.png", "textures/blocks/orange_poplar_leaves_opaque.png"]
-			["textures/blocks/pale_oak_leaves.png", "textures/blocks/pale_oak_leaves_opaque.png"]
-			["textures/blocks/red_poplar_leaves.png", "textures/blocks/red_poplar_leaves_opaque.png"]
-			["textures/blocks/yellow_poplar_leaves.png", "textures/blocks/yellow_poplar_leaves_opaque.png"]
         ];
     }
 }
-
 
 
 
@@ -61377,274 +61365,9 @@ class RenameConverter extends _modifiedcommand_convert_base_api__WEBPACK_IMPORTE
             ["textures/block/stripped_mangrove_log.png", "textures/blocks/stripped_mangrove_log_side.png"],
             ["textures/block/cherry_log.png", "textures/blocks/cherry_log_side.png"],
             ["textures/block/stripped_cherry_log.png", "textures/blocks/stripped_cherry_log_side.png"],
-            
-            //deepslate
-            ["textures/blocks/chiseled_deepslate.png", "textures/blocks/deepslate/chiseled_deepslate.png"],
-            ["textures/blocks/cobbled_deepslate.png", "textures/blocks/deepslate/cobbled_deepslate.png"],
-            ["textures/blocks/cracked_deepslate_bricks.png", "textures/blocks/deepslate/cracked_deepslate_bricks.png"],
-            ["textures/blocks/cracked_deepslate_tiles.png", "textures/blocks/deepslate/cracked_deepslate_tiles.png"],
-            ["textures/blocks/deepslate.png", "textures/blocks/deepslate/deepslate.png"],
-            ["textures/blocks/deepslate_bricks.png", "textures/blocks/deepslate/deepslate_bricks.png"],
-            ["textures/blocks/deepslate_coal_ore.png", "textures/blocks/deepslate/deepslate_coal_ore.png"],
-            ["textures/blocks/deepslate_copper_ore.png", "textures/blocks/deepslate/deepslate_copper_ore.png"],
-            ["textures/blocks/deepslate_diamond_ore.png", "textures/blocks/deepslate/deepslate_diamond_ore.png"],
-            ["textures/blocks/deepslate_emerald_ore.png", "textures/blocks/deepslate/deepslate_emerald_ore.png"],
-            ["textures/blocks/deepslate_gold_ore.png", "textures/blocks/deepslate/deepslate_gold_ore.png"],
-            ["textures/blocks/deepslate_iron_ore.png", "textures/blocks/deepslate/deepslate_iron_ore.png"],
-            ["textures/blocks/deepslate_lapis_ore.png", "textures/blocks/deepslate/deepslate_lapis_ore.png"],
-            ["textures/blocks/deepslate_redstone_ore.png", "textures/blocks/deepslate/deepslate_redstone_ore.png"],
-            ["textures/blocks/deepslate_tiles.png", "textures/blocks/deepslate/deepslate_tiles.png"],
-            ["textures/blocks/deepslate_top.png", "textures/blocks/deepslate/deepslate_top.png"],
-            ["textures/blocks/polished_deepslate.png", "textures/blocks/deepslate/polished_deepslate.png"],
-            
-            //candles
-            ["textures/blocks/black_candle.png", "textures/blocks/candles/black_candle.png"],
-            ["textures/blocks/black_candle_lit.png", "textures/blocks/candles/black_candle_lit.png"],
-            ["textures/blocks/blue_candle.png", "textures/blocks/candles/blue_candle.png"],
-            ["textures/blocks/blue_candle_lit.png", "textures/blocks/candles/blue_candle_lit.png"],
-            ["textures/blocks/brown_candle.png", "textures/blocks/candles/brown_candle.png"],
-            ["textures/blocks/brown_candle_lit.png", "textures/blocks/candles/brown_candle_lit.png"],
-            ["textures/blocks/candle.png", "textures/blocks/candles/candle.png"],
-            ["textures/blocks/candle_lit.png", "textures/blocks/candles/candle_lit.png"],
-            ["textures/blocks/cyan_candle.png", "textures/blocks/candles/cyan_candle.png"],
-            ["textures/blocks/cyan_candle_lit.png", "textures/blocks/candles/cyan_candle_lit.png"],
-            ["textures/blocks/gray_candle.png", "textures/blocks/candles/gray_candle.png"],
-            ["textures/blocks/gray_candle_lit.png", "textures/blocks/candles/gray_candle_lit.png"],
-            ["textures/blocks/green_candle.png", "textures/blocks/candles/green_candle.png"],
-            ["textures/blocks/green_candle_lit.png", "textures/blocks/candles/green_candle_lit.png"],
-            ["textures/blocks/light_blue_candle.png", "textures/blocks/candles/light_blue_candle.png"],
-            ["textures/blocks/light_blue_candle_lit.png", "textures/blocks/candles/light_blue_candle_lit.png"],
-            ["textures/blocks/light_gray_candle.png", "textures/blocks/candles/light_gray_candle.png"],
-            ["textures/blocks/light_gray_candle_lit.png", "textures/blocks/candles/light_gray_candle_lit.png"],
-            ["textures/blocks/lime_candle.png", "textures/blocks/candles/lime_candle.png"],
-            ["textures/blocks/lime_candle_lit.png", "textures/blocks/candles/lime_candle_lit.png"],
-            ["textures/blocks/magenta_candle.png", "textures/blocks/candles/magenta_candle.png"],
-            ["textures/blocks/magenta_candle_lit.png", "textures/blocks/candles/magenta_candle_lit.png"],
-            ["textures/blocks/orange_candle.png", "textures/blocks/candles/orange_candle.png"],
-            ["textures/blocks/orange_candle_lit.png", "textures/blocks/candles/orange_candle_lit.png"],
-            ["textures/blocks/pink_candle.png", "textures/blocks/candles/pink_candle.png"],
-            ["textures/blocks/pink_candle_lit.png", "textures/blocks/candles/pink_candle_lit.png"],
-            ["textures/blocks/purple_candle.png", "textures/blocks/candles/purple_candle.png"],
-            ["textures/blocks/purple_candle_lit.png", "textures/blocks/candles/purple_candle_lit.png"],
-            ["textures/blocks/red_candle.png", "textures/blocks/candles/red_candle.png"],
-            ["textures/blocks/red_candle_lit.png", "textures/blocks/candles/red_candle_lit.png"],
-            ["textures/blocks/white_candle.png", "textures/blocks/candles/white_candle.png"],
-            ["textures/blocks/white_candle_lit.png", "textures/blocks/candles/white_candle_lit.png"],
-            ["textures/blocks/yellow_candle.png", "textures/blocks/candles/yellow_candle.png"],
-            ["textures/blocks/yellow_candle_lit.png", "textures/blocks/candles/yellow_candle_lit.png"],
-            
-            //decorated_pot
-            ["textures/entity/decorated_pot/angler_pottery_pattern.png", "textures/blocks/angler_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/archer_pottery_pattern.png", "textures/blocks/archer_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/arms_up_pottery_pattern.png", "textures/blocks/arms_up_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/blade_pottery_pattern.png", "textures/blocks/blade_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/brewer_pottery_pattern.png", "textures/blocks/brewer_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/burn_pottery_pattern.png", "textures/blocks/burn_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/danger_pottery_pattern.png", "textures/blocks/danger_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/explorer_pottery_pattern.png", "textures/blocks/explorer_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/flow_pottery_pattern.png", "textures/blocks/flow_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/friend_pottery_pattern.png", "textures/blocks/friend_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/guster_pottery_pattern.png", "textures/blocks/guster_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/heartbreak_pottery_pattern.png", "textures/blocks/heartbreak_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/heart_pottery_pattern.png", "textures/blocks/heart_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/howl_pottery_pattern.png", "textures/blocks/howl_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/miner_pottery_pattern.png", "textures/blocks/miner_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/mourner_pottery_pattern.png", "textures/blocks/mourner_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/plenty_pottery_pattern.png", "textures/blocks/plenty_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/prize_pottery_pattern.png", "textures/blocks/prize_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/scrape_pottery_pattern.png", "textures/blocks/scrape_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/sheaf_pottery_pattern.png", "textures/blocks/sheaf_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/shelter_pottery_pattern.png", "textures/blocks/shelter_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/skull_pottery_pattern.png", "textures/blocks/skull_pottery_pattern.png"],
-            ["textures/entity/decorated_pot/snort_pottery_pattern.png", "textures/blocks/snort_pottery_pattern.png"],
-
-
-            // New blocks
-            ["textures/blocks/flowering_azalea_leaves.png", "textures/blocks/azalea_leaves_flowers.png"],
-            ["textures/blocks/big_dripleaf_side.png", "textures/blocks/big_dripleaf_side1.png"],
-            ["textures/blocks/big_dripleaf_tip.png", "textures/blocks/big_dripleaf_side2.png"],
-            ["textures/blocks/cave_vines.png", "textures/blocks/cave_vines_head.png"],
-            ["textures/blocks/cave_vines_lit.png", "textures/blocks/cave_vines_berries.png"],
-            ["textures/blocks/cave_vines_plant.png", "textures/blocks/cave_vines_body.png"],
-            ["textures/blocks/cave_vines_plant_lit.png", "textures/blocks/cave_vines_plant_berries.png"],
-            ["textures/blocks/closed_eyeblossom.png", "textures/blocks/eyeblossom_dormant.png"],
-            ["textures/blocks/creaking_heart_awake.png", "textures/blocks/creaking_heart_active.png"],
-            ["textures/blocks/creaking_heart_top_awake.png", "textures/blocks/creaking_heart_top_active.png"],
-            ["textures/blocks/open_eyeblossom.png", "textures/blocks/eyeblossom_stem_blooming.png"],
-            ["textures/blocks/open_eyeblossom_emissive.png", "textures/blocks/eyeblossom_eyes_blooming.png"],
-            ["textures/blocks/pale_hanging_moss.png", "textures/blocks/pale_hanging_moss_middle.png"],
-            ["textures/blocks/pale_moss_carpet_side_small.png", "textures/blocks/pale_moss_carpet_side_tip.png"],
-            ["textures/blocks/pale_moss_carpet_side_tall.png", "textures/blocks/pale_moss_carpet_side_base.png"],
-            ["textures/blocks/pale_oak_log.png", "textures/blocks/pale_oak_log_side.png"],
-            ["textures/blocks/stripped_pale_oak_log.png", "textures/blocks/stripped_pale_oak_log_side.png"],
-            ["textures/blocks/pointed_dripstone_down_tip_merge.png", "textures/blocks/pointed_dripstone_down_merge.png"],
-            ["textures/blocks/pointed_dripstone_up_tip_merge.png", "textures/blocks/pointed_dripstone_up_merge.png"],
-            ["textures/blocks/rooted_dirt.png", "textures/blocks/dirt_with_roots.png"],
-            ["textures/blocks/torchflower_crop_stage0.png", "textures/blocks/torchflower_crop_stage_0.png"],
-            ["textures/blocks/torchflower_crop_stage1.png", "textures/blocks/torchflower_crop_stage_1.png"],
-
-            // New Items
-            ["textures/items/axolotl_bucket.png", "textures/items/bucket_axolotl.png"],
-            ["textures/items/glow_ink_sac.png", "textures/items/dye_powder_glow.png"],
-            ["textures/items/music_disc_5.png", "textures/items/record_5.png"],
-            ["textures/items/powder_snow_bucket.png", "textures/items/bucket_powder_snow.png"],
-            ["textures/items/tadpole_bucket.png", "textures/items/bucket_tadpole.png"],
-            
-            // Bundles
-            ["textures/items/black_bundle.png", "textures/items/bundle_black.png"],
-            ["textures/items/black_bundle_open_back.png", "textures/items/bundle_black_open_back.png"],
-            ["textures/items/black_bundle_open_front.png", "textures/items/bundle_black_open_front.png"],
-            ["textures/items/blue_bundle.png", "textures/items/bundle_blue.png"],
-            ["textures/items/blue_bundle_open_back.png", "textures/items/bundle_blue_open_back.png"],
-            ["textures/items/blue_bundle_open_front.png", "textures/items/bundle_blue_open_front.png"],
-            ["textures/items/brown_bundle.png", "textures/items/bundle_brown.png"],
-            ["textures/items/brown_bundle_open_back.png", "textures/items/bundle_brown_open_back.png"],
-            ["textures/items/brown_bundle_open_front.png", "textures/items/bundle_brown_open_front.png"],
-            ["textures/items/cyan_bundle.png", "textures/items/bundle_cyan.png"],
-            ["textures/items/cyan_bundle_open_back.png", "textures/items/bundle_cyan_open_back.png"],
-            ["textures/items/cyan_bundle_open_front.png", "textures/items/bundle_cyan_open_front.png"],
-            ["textures/items/gray_bundle.png", "textures/items/bundle_gray.png"],
-            ["textures/items/gray_bundle_open_back.png", "textures/items/bundle_gray_open_back.png"],
-            ["textures/items/gray_bundle_open_front.png", "textures/items/bundle_gray_open_front.png"],
-            ["textures/items/green_bundle.png", "textures/items/bundle_green.png"],
-            ["textures/items/green_bundle_open_back.png", "textures/items/bundle_green_open_back.png"],
-            ["textures/items/green_bundle_open_front.png", "textures/items/bundle_green_open_front.png"],
-            ["textures/items/light_blue_bundle.png", "textures/items/bundle_light_blue.png"],
-            ["textures/items/light_blue_bundle_open_back.png", "textures/items/bundle_light_blue_open_back.png"],
-            ["textures/items/light_blue_bundle_open_front.png", "textures/items/bundle_light_blue_open_front.png"],
-            ["textures/items/light_gray_bundle.png", "textures/items/bundle_light_gray.png"],
-            ["textures/items/light_gray_bundle_open_back.png", "textures/items/bundle_light_gray_open_back.png"],
-            ["textures/items/light_gray_bundle_open_front.png", "textures/items/bundle_light_gray_open_front.png"],
-            ["textures/items/lime_bundle.png", "textures/items/bundle_lime.png"],
-            ["textures/items/lime_bundle_open_back.png", "textures/items/bundle_lime_open_back.png"],
-            ["textures/items/lime_bundle_open_front.png", "textures/items/bundle_lime_open_front.png"],
-            ["textures/items/magenta_bundle.png", "textures/items/bundle_magenta.png"],
-            ["textures/items/magenta_bundle_open_back.png", "textures/items/bundle_magenta_open_back.png"],
-            ["textures/items/magenta_bundle_open_front.png", "textures/items/bundle_magenta_open_front.png"],
-            ["textures/items/orange_bundle.png", "textures/items/bundle_orange.png"],
-            ["textures/items/orange_bundle_open_back.png", "textures/items/bundle_orange_open_back.png"],
-            ["textures/items/orange_bundle_open_front.png", "textures/items/bundle_orange_open_front.png"],
-            ["textures/items/pink_bundle.png", "textures/items/bundle_pink.png"],
-            ["textures/items/pink_bundle_open_back.png", "textures/items/bundle_pink_open_back.png"],
-            ["textures/items/pink_bundle_open_front.png", "textures/items/bundle_pink_open_front.png"],
-            ["textures/items/purple_bundle.png", "textures/items/bundle_purple.png"],
-            ["textures/items/purple_bundle_open_back.png", "textures/items/bundle_purple_open_back.png"],
-            ["textures/items/purple_bundle_open_front.png", "textures/items/bundle_purple_open_front.png"],
-            ["textures/items/red_bundle.png", "textures/items/bundle_red.png"],
-            ["textures/items/red_bundle_open_back.png", "textures/items/bundle_red_open_back.png"],
-            ["textures/items/red_bundle_open_front.png", "textures/items/bundle_red_open_front.png"],
-            ["textures/items/white_bundle.png", "textures/items/bundle_white.png"],
-            ["textures/items/white_bundle_open_back.png", "textures/items/bundle_white_open_back.png"],
-            ["textures/items/white_bundle_open_front.png", "textures/items/bundle_white_open_front.png"],
-            ["textures/items/yellow_bundle.png", "textures/items/bundle_yellow.png"],
-            ["textures/items/yellow_bundle_open_back.png", "textures/items/bundle_yellow_open_back.png"],
-            ["textures/items/yellow_bundle_open_front.png", "textures/items/bundle_yellow_open_front.png"],
-            
-            // Candles
-            ["textures/items/candle.png", "textures/items/candles/candle.png"],
-            ["textures/items/black_candle.png", "textures/items/candles/black_candle.png"],
-            ["textures/items/blue_candle.png", "textures/items/candles/blue_candle.png"],
-            ["textures/items/brown_candle.png", "textures/items/candles/brown_candle.png"],
-            ["textures/items/cyan_candle.png", "textures/items/candles/cyan_candle.png"],
-            ["textures/items/gray_candle.png", "textures/items/candles/gray_candle.png"],
-            ["textures/items/green_candle.png", "textures/items/candles/green_candle.png"],
-            ["textures/items/light_blue_candle.png", "textures/items/candles/light_blue_candle.png"],
-            ["textures/items/light_gray_candle.png", "textures/items/candles/light_gray_candle.png"],
-            ["textures/items/lime_candle.png", "textures/items/candles/lime_candle.png"],
-            ["textures/items/magenta_candle.png", "textures/items/candles/magenta_candle.png"],
-            ["textures/items/orange_candle.png", "textures/items/candles/orange_candle.png"],
-            ["textures/items/pink_candle.png", "textures/items/candles/pink_candle.png"],
-            ["textures/items/purple_candle.png", "textures/items/candles/purple_candle.png"],
-            ["textures/items/red_candle.png", "textures/items/candles/red_candle.png"],
-            ["textures/items/white_candle.png", "textures/items/candles/white_candle.png"],
-            ["textures/items/yellow_candle.png", "textures/items/candles/yellow_candle.png"],
-            
-            // Spawn Eggs
-            ["textures/items/allay_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_allay.png"],
-            ["textures/items/armadillo_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_armadillo.png"],
-            ["textures/items/axolotl_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_axolotl.png"],
-            ["textures/items/bat_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_bat.png"],
-            ["textures/items/bee_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_bee.png"],
-            ["textures/items/blaze_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_blaze.png"],
-            ["textures/items/bogged_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_bogged.png"],
-            ["textures/items/breeze_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_breeze.png"],
-            ["textures/items/camel_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_camel.png"],
-            ["textures/items/cat_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_cat.png"],
-            ["textures/items/cave_spider_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_cave_spider.png"],
-            ["textures/items/chicken_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_chicken.png"],
-            ["textures/items/cod_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_cod.png"],
-            ["textures/items/cow_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_cow.png"],
-            ["textures/items/creaking_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_creaking.png"],
-            ["textures/items/creeper_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_creeper.png"],
-            ["textures/items/dolphin_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_dolphin.png"],
-            ["textures/items/donkey_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_donkey.png"],
-            ["textures/items/drowned_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_drowned.png"],
-            ["textures/items/elder_guardian_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_elder_guardian.png"],
-            ["textures/items/ender_dragon_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_ender_dragon.png"],
-            ["textures/items/enderman_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_enderman.png"],
-            ["textures/items/endermite_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_endermite.png"],
-            ["textures/items/evoker_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_evoker.png"],
-            ["textures/items/fox_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_fox.png"],
-            ["textures/items/frog_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_frog.png"],
-            ["textures/items/ghast_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_ghast.png"],
-            ["textures/items/glow_squid_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_glow_squid.png"],
-            ["textures/items/goat_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_goat.png"],
-            ["textures/items/guardian_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_guardian.png"],
-            ["textures/items/hoglin_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_hoglin.png"],
-            ["textures/items/horse_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_horse.png"],
-            ["textures/items/husk_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_husk.png"],
-            ["textures/items/iron_golem_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_iron_golem.png"],
-            ["textures/items/llama_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_llama.png"],
-            ["textures/items/magma_cube_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_magma_cube.png"],
-            ["textures/items/mooshroom_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_mooshroom.png"],
-            ["textures/items/mule_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_mule.png"],
-            ["textures/items/ocelot_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_ocelot.png"],
-            ["textures/items/panda_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_panda.png"],
-            ["textures/items/parrot_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_parrot.png"],
-            ["textures/items/phantom_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_phantom.png"],
-            ["textures/items/pig_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_pig.png"],
-            ["textures/items/piglin_brute_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_piglin_brute.png"],
-            ["textures/items/piglin_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_piglin.png"],
-            ["textures/items/pillager_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_pillager.png"],
-            ["textures/items/polar_bear_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_polar_bear.png"],
-            ["textures/items/pufferfish_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_pufferfish.png"],
-            ["textures/items/rabbit_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_rabbit.png"],
-            ["textures/items/ravager_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_ravager.png"],
-            ["textures/items/salmon_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_salmon.png"],
-            ["textures/items/sheep_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_sheep.png"],
-            ["textures/items/shulker_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_shulker.png"],
-            ["textures/items/silverfish_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_silverfish.png"],
-            ["textures/items/skeleton_horse_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_skeleton_horse.png"],
-            ["textures/items/skeleton_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_skeleton.png"],
-            ["textures/items/slime_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_slime.png"],
-            ["textures/items/sniffer_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_sniffer.png"],
-            ["textures/items/snow_golem_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_snow_golem.png"],
-            ["textures/items/spider_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_spider.png"],
-            ["textures/items/squid_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_squid.png"],
-            ["textures/items/stray_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_stray.png"],
-            ["textures/items/strider_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_strider.png"],
-            ["textures/items/tadpole_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_tadpole.png"],
-            ["textures/items/trader_llama_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_trader_llama.png"],
-            ["textures/items/tropical_fish_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_tropicalfish.png"],
-            ["textures/items/turtle_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_turtle.png"],
-            ["textures/items/vex_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_vex.png"],
-            ["textures/items/villager_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_villager.png"],
-            ["textures/items/vindicator_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_vindicator.png"],
-            ["textures/items/wandering_trader_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_wandering_trader.png"],
-            ["textures/items/warden_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_warden.png"],
-            ["textures/items/witch_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_witch.png"],
-            ["textures/items/wither_skeleton_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_wither_skeleton.png"],
-            ["textures/items/wither_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_wither.png"],
-            ["textures/items/wolf_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_wolf.png"],
-            ["textures/items/zoglin_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_zoglin.png"],
-            ["textures/items/zombie_horse_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_zombie_horse.png"],
-            ["textures/items/zombie_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_zombie.png"],
-            ["textures/items/zombie_villager_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_zombie_villager.png"],
-            ["textures/items/zombified_piglin_spawn_egg.png", "textures/items/spawn_eggs/spawn_egg_zombified_piglin.png"]
         ];
     }
 }
-
 
 
 
@@ -67051,10 +66774,10 @@ var SHARED = '__core-js_shared__';
 var store = module.exports = globalThis[SHARED] || defineGlobalProperty(SHARED, {});
 
 (store.versions || (store.versions = [])).push({
-  version: '3.50.0',
+  version: '3.51.0',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2013–2025 Denis Pushkarev (zloirock.ru), 2025–2026 CoreJS Company (core-js.io). All rights reserved.',
-  license: 'https://github.com/zloirock/core-js/blob/v3.50.0/LICENSE',
+  license: 'https://github.com/zloirock/core-js/blob/v3.51.0/LICENSE',
   source: 'https://github.com/zloirock/core-js'
 });
 
@@ -94565,7 +94288,8 @@ var percentTwenties = /%20/g;
 
 var Format = {
     RFC1738: 'RFC1738',
-    RFC3986: 'RFC3986'
+    RFC3986: 'RFC3986',
+    WHATWG: 'WHATWG'
 };
 
 module.exports = {
@@ -94576,10 +94300,14 @@ module.exports = {
         },
         RFC3986: function (value) {
             return String(value);
+        },
+        WHATWG: function (value) {
+            return replace.call(value, percentTwenties, '+');
         }
     },
     RFC1738: Format.RFC1738,
-    RFC3986: Format.RFC3986
+    RFC3986: Format.RFC3986,
+    WHATWG: Format.WHATWG
 };
 
 
@@ -94618,10 +94346,62 @@ module.exports = {
 "use strict";
 
 
+var getSideChannel = __webpack_require__(/*! side-channel */ "./node_modules/side-channel/index.js");
 var utils = __webpack_require__(/*! ./utils */ "./node_modules/url/node_modules/qs/lib/utils.js");
 
 var has = Object.prototype.hasOwnProperty;
 var isArray = Array.isArray;
+var getPrototypeOf = Object.getPrototypeOf;
+var fromCharCode = String.fromCharCode;
+
+var isPlainContainer = function isPlainContainer(value) {
+    if (!value || typeof value !== 'object') {
+        return false;
+    }
+    if (isArray(value)) {
+        return true;
+    }
+    var proto = getPrototypeOf(value);
+    return proto === Object.prototype || proto === null;
+};
+
+var emptyCopyOf = function emptyCopyOf(value) {
+    if (isArray(value)) {
+        var arr = [];
+        arr.length = value.length;
+        return arr;
+    }
+    return getPrototypeOf(value) === null ? { __proto__: null } : {};
+};
+
+// `merge` and `compact` modify the containers they are given, so copy the caller's arrays and plain objects first
+var copyInput = function copyInput(input) {
+    var copies = getSideChannel();
+    var result = {};
+    var queue = [{ source: input, target: result }];
+
+    for (var i = 0; i < queue.length; ++i) {
+        var source = queue[i].source;
+        var target = queue[i].target;
+        var keys = Object.keys(source);
+        for (var j = 0; j < keys.length; ++j) {
+            var value = source[keys[j]];
+            // `target[key] =` would invoke the `__proto__` setter. `setProperty` stores that key as data.
+            if (isPlainContainer(value)) {
+                if (!copies.has(value)) {
+                    var copy = emptyCopyOf(value);
+                    copies.set(value, copy);
+                    queue[queue.length] = { source: value, target: copy };
+                }
+                utils.setProperty(target, keys[j], copies.get(value));
+            } else {
+                utils.setProperty(target, keys[j], value);
+            }
+        }
+    }
+
+    return result;
+};
 
 var defaults = {
     allowDots: false,
@@ -94650,7 +94430,13 @@ var defaults = {
 
 var interpretNumericEntities = function (str) {
     return str.replace(/&#(\d+);/g, function ($0, numberStr) {
-        return String.fromCharCode(parseInt(numberStr, 10));
+        var c = parseInt(numberStr, 10);
+        if (c > 0xFFFF && c <= 0x10FFFF) {
+            // `String.fromCodePoint` is not available in every supported engine, so build the surrogate pair by hand
+            c -= 0x10000;
+            return fromCharCode(0xD800 | (c >> 10), 0xDC00 | (c & 0x3FF));
+        }
+        return fromCharCode(c);
     });
 };
 
@@ -94670,7 +94456,11 @@ var parseArrayValue = function (val, options, currentArrayLength) {
         return val.split(',');
     }
 
-    if (options.throwOnLimitExceeded && currentArrayLength >= options.arrayLimit) {
+    if (
+        options.throwOnLimitExceeded
+        && currentArrayLength >= options.arrayLimit
+        && currentArrayLength > 0
+    ) {
         throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
     }
 
@@ -94730,6 +94520,9 @@ var parseValues = function parseQueryStringValues(str, options) {
         var bracketEqualsPos = part.indexOf(']=');
         var pos = bracketEqualsPos === -1 ? part.indexOf('=') : bracketEqualsPos + 1;
 
+        // `[]` belongs to the key, so look for it at the split point, not anywhere in the part
+        var isEmptyBracketKey = pos > 1 && part.slice(pos - 2, pos) === '[]';
+
         var key;
         var val;
         if (pos === -1) {
@@ -94743,7 +94536,7 @@ var parseValues = function parseQueryStringValues(str, options) {
                     parseArrayValue(
                         part.slice(pos + 1),
                         options,
-                        isArray(obj[key]) ? obj[key].length : 0
+                        isArray(obj[key]) && (options.duplicates === 'combine' || isEmptyBracketKey) ? obj[key].length : 0
                     ),
                     function (encodedVal) {
                         return options.decoder(encodedVal, defaults.decoder, charset, 'value');
@@ -94753,10 +94546,12 @@ var parseValues = function parseQueryStringValues(str, options) {
         }
 
         if (val && options.interpretNumericEntities && charset === 'iso-8859-1') {
-            val = interpretNumericEntities(String(val));
+            val = utils.maybeMap(val, function (value) {
+                return value ? interpretNumericEntities(String(value)) : value;
+            });
         }
 
-        if (part.indexOf('[]=') > -1) {
+        if (isEmptyBracketKey) {
             val = isArray(val) ? [val] : val;
         }
 
@@ -94766,7 +94561,7 @@ var parseValues = function parseQueryStringValues(str, options) {
 
         if (key !== null) {
             var existing = has.call(obj, key);
-            if (existing && (options.duplicates === 'combine' || part.indexOf('[]=') > -1)) {
+            if (existing && (options.duplicates === 'combine' || isEmptyBracketKey)) {
                 obj[key] = utils.combine(
                     obj[key],
                     val,
@@ -94781,6 +94576,10 @@ var parseValues = function parseQueryStringValues(str, options) {
     }
 
     return obj;
+};
+
+var stripWrappingBrackets = function stripWrappingBrackets(key) {
+    return key.charAt(0) === '[' && key.charAt(key.length - 1) === ']' ? key.slice(1, -1) : key;
 };
 
 var parseObject = function (chain, val, options, valuesParsed) {
@@ -94813,8 +94612,8 @@ var parseObject = function (chain, val, options, valuesParsed) {
             }
         } else {
             obj = options.plainObjects ? { __proto__: null } : {};
-            var cleanRoot = root.charAt(0) === '[' && root.charAt(root.length - 1) === ']' ? root.slice(1, -1) : root;
-            var decodedRoot = options.decodeDotInKeys ? cleanRoot.replace(/%2E/g, '.') : cleanRoot;
+            var cleanRoot = stripWrappingBrackets(root);
+            var decodedRoot = options.decodeDotInKeys ? cleanRoot.replace(/%2E/gi, '.') : cleanRoot;
             var index = parseInt(decodedRoot, 10);
             var isValidArrayIndex = !isNaN(index)
                 && root !== decodedRoot
@@ -94822,7 +94621,7 @@ var parseObject = function (chain, val, options, valuesParsed) {
                 && index >= 0
                 && options.parseArrays;
             if (!options.parseArrays && decodedRoot === '') {
-                obj = { 0: leaf };
+                obj[0] = leaf;
             } else if (isValidArrayIndex && index < options.arrayLimit) {
                 obj = [];
                 obj[index] = leaf;
@@ -94842,14 +94641,52 @@ var parseObject = function (chain, val, options, valuesParsed) {
     return leaf;
 };
 
+// Behaves like `key.replace(/\.([^.[]+)/g, '[$1]')`, but only rewrites a dot
+// that sits at bracket depth 0. A literal dot already inside a `[...]` segment
+// is left untouched instead of corrupting the key (e.g. "outer[a.b]"). (#617)
+var topLevelDotsToBrackets = function topLevelDotsToBrackets(key) {
+    var result = '';
+    var depth = 0;
+    for (var i = 0; i < key.length; i += 1) {
+        var cu = key.charCodeAt(i);
+        if (cu === 0x5B) { // '['
+            depth += 1;
+            result += '[';
+        } else if (cu === 0x5D) { // ']'
+            if (depth > 0) {
+                depth -= 1;
+            }
+            result += ']';
+        } else if (
+            cu === 0x2E // '.'
+            && depth === 0
+            && i + 1 < key.length
+            && key.charCodeAt(i + 1) !== 0x2E // not another '.'
+            && key.charCodeAt(i + 1) !== 0x5B // not '['
+        ) {
+            var start = i + 1;
+            var j = start;
+            while (j < key.length && key.charCodeAt(j) !== 0x2E && key.charCodeAt(j) !== 0x5B) {
+                j += 1;
+            }
+            result += '[' + key.slice(start, j) + ']';
+            i = j - 1;
+        } else {
+            result += key.charAt(i);
+        }
+    }
+    return result;
+};
+
 // Split a key like "a[b][c[]]" into ['a', '[b]', '[c[]]'] while preserving
 // qs parse semantics for depth/prototype guards.
 var splitKeyIntoSegments = function splitKeyIntoSegments(originalKey, options) {
-    var key = options.allowDots ? originalKey.replace(/\.([^.[]+)/g, '[$1]') : originalKey;
+    var key = options.allowDots ? topLevelDotsToBrackets(originalKey) : originalKey;
 
     // depth <= 0 keeps the whole key as one segment
     if (options.depth <= 0) {
-        if (!options.plainObjects && has.call(Object.prototype, key)) {
+        // `parseObject` strips one wrapping bracket pair, so guard the key it will store ("[toString]" -> "toString")
+        if (!options.plainObjects && has.call(Object.prototype, stripWrappingBrackets(key))) {
             if (!options.allowPrototypes) {
                 return;
             }
@@ -95011,7 +94848,7 @@ module.exports = function (str, opts) {
         return options.plainObjects ? { __proto__: null } : {};
     }
 
-    var tempObj = typeof str === 'string' ? parseValues(str, options) : str;
+    var tempObj = typeof str === 'string' ? parseValues(str, options) : copyInput(str);
     var obj = options.plainObjects ? { __proto__: null } : {};
 
     // Iterate over the keys and setup the new object
@@ -95193,10 +95030,10 @@ var stringify = function stringify(
         // we need to join elements in
         if (encodeValuesOnly && encoder) {
             obj = utils.maybeMap(obj, function (v) {
-                return v == null ? v : encoder(v);
+                return v == null ? v : encoder(v, defaults.encoder, charset, 'value', format);
             });
         }
-        objKeys = [{ value: obj.length > 0 ? obj.join(',') || null : void undefined }];
+        objKeys = [{ value: obj.length > 0 ? utils.toCoercible(obj).join(',') || null : void undefined }];
     } else if (isArray(filter)) {
         objKeys = filter;
     } else {
@@ -95204,12 +95041,12 @@ var stringify = function stringify(
         objKeys = sort ? keys.sort(sort) : keys;
     }
 
-    var encodedPrefix = encodeDotInKeys ? String(prefix).replace(/\./g, '%2E') : String(prefix);
+    var encodedPrefix = String(prefix);
 
     var adjustedPrefix = commaRoundTrip && isArray(obj) && obj.length === 1 ? encodedPrefix + '[]' : encodedPrefix;
 
     if (allowEmptyArrays && isArray(obj) && obj.length === 0 && Object.keys(obj).length === 0) {
-        return adjustedPrefix + '[]';
+        return formatter(encoder && !encodeValuesOnly ? encoder(adjustedPrefix, defaults.encoder, charset, 'key', format) : adjustedPrefix) + '[]';
     }
 
     for (var j = 0; j < objKeys.length; ++j) {
@@ -95294,7 +95131,7 @@ var normalizeStringifyOptions = function normalizeStringifyOptions(opts) {
     }
 
     var arrayFormat;
-    if (opts.arrayFormat in arrayPrefixGenerators) {
+    if (has.call(arrayPrefixGenerators, opts.arrayFormat)) {
         arrayFormat = opts.arrayFormat;
     } else if ('indices' in opts) {
         arrayFormat = opts.indices ? 'indices' : 'repeat';
@@ -95343,7 +95180,9 @@ module.exports = function (object, opts) {
         filter = options.filter;
         obj = filter('', obj);
     } else if (isArray(options.filter)) {
-        filter = options.filter;
+        // a copy: `sort` below must not reorder the caller's array, and nested
+        // levels take their key order from the sorted copy
+        filter = options.filter.slice();
         objKeys = filter;
     }
 
@@ -95390,7 +95229,7 @@ module.exports = function (object, opts) {
             options.skipNulls,
             options.encodeDotInKeys,
             options.encode ? options.encoder : null,
-            options.filter,
+            filter,
             options.sort,
             options.allowDots,
             options.serializeDate,
@@ -95461,6 +95300,23 @@ var setMaxIndex = function setMaxIndex(obj, maxIndex) {
     overflowChannel.set(obj, maxIndex);
 };
 
+// Track containers produced by a `strictMerge` conflict wrap, and their current max numeric index,
+// so repeated conflicts on one path append instead of nesting a new wrapper each time
+var conflictChannel = getSideChannel();
+
+var markConflict = function markConflict(obj, maxIndex) {
+    conflictChannel.set(obj, maxIndex);
+    return obj;
+};
+
+var isConflict = function isConflict(obj) {
+    return conflictChannel.has(obj);
+};
+
+var getConflictIndex = function getConflictIndex(obj) {
+    return conflictChannel.get(obj);
+};
+
 var hexTable = (function () {
     var array = [];
     for (var i = 0; i < 256; ++i) {
@@ -95513,6 +95369,41 @@ var setProperty = function setProperty(obj, key, value) {
     }
 };
 
+var maxNumericIndex = function maxNumericIndex(obj, min) {
+    var max = min;
+    var keys = Object.keys(obj);
+    for (var i = 0; i < keys.length; ++i) {
+        var num = parseInt(keys[i], 10);
+        if (String(num) === keys[i] && num > max) {
+            max = num;
+        }
+    }
+
+    return max;
+};
+
+// parsed arrays stay sparse until `compact`, so `length` would count the holes left by indices like `a[19]`
+var countElements = function countElements(arr) {
+    var count = 0;
+    for (var i = 0; i < arr.length; ++i) {
+        if (has.call(arr, i)) {
+            count += 1;
+        }
+    }
+    return count;
+};
+
+var limitedPair = function limitedPair(first, second, options) {
+    var pair = [first, second];
+    if (options && typeof options.arrayLimit === 'number' && pair.length > options.arrayLimit) {
+        if (options.throwOnLimitExceeded) {
+            throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+        }
+        return markOverflow(arrayToObject(pair, options), 1);
+    }
+    return pair;
+};
+
 var merge = function merge(target, source, options) {
     /* eslint no-param-reassign: 0 */
     if (!source) {
@@ -95522,7 +95413,7 @@ var merge = function merge(target, source, options) {
     if (typeof source !== 'object' && typeof source !== 'function') {
         if (isArray(target)) {
             var nextIndex = target.length;
-            if (options && typeof options.arrayLimit === 'number' && nextIndex >= options.arrayLimit) {
+            if (options && typeof options.arrayLimit === 'number' && countElements(target) >= options.arrayLimit) {
                 if (options.throwOnLimitExceeded) {
                     throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
                 }
@@ -95535,8 +95426,20 @@ var merge = function merge(target, source, options) {
                 var newIndex = getMaxIndex(target) + 1;
                 target[newIndex] = source;
                 setMaxIndex(target, newIndex);
+            } else if (options && options.strictMerge && isConflict(target)) {
+                var nextConflict = getConflictIndex(target) + 1;
+                if (
+                    options.throwOnLimitExceeded
+                    && typeof options.arrayLimit === 'number'
+                    && nextConflict >= options.arrayLimit
+                ) {
+                    throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+                }
+                target[nextConflict] = source;
+                markConflict(target, nextConflict);
             } else if (options && options.strictMerge) {
-                return [target, source];
+                var conflict = limitedPair(target, source, options);
+                return isArray(conflict) ? markConflict(conflict, 1) : conflict;
             } else if (
                 (options && (options.plainObjects || options.allowPrototypes))
                 || !has.call(Object.prototype, source)
@@ -95544,7 +95447,7 @@ var merge = function merge(target, source, options) {
                 target[source] = true;
             }
         } else {
-            return [target, source];
+            return limitedPair(target, source, options);
         }
 
         return target;
@@ -95576,6 +95479,10 @@ var merge = function merge(target, source, options) {
     var mergeTarget = target;
     if (isArray(target) && !isArray(source)) {
         mergeTarget = arrayToObject(target, options);
+        if (isConflict(target)) {
+            // the array may have grown past its last conflict, so continue after its last index
+            markConflict(mergeTarget, target.length - 1);
+        }
     }
 
     if (isArray(target) && isArray(source)) {
@@ -95591,7 +95498,7 @@ var merge = function merge(target, source, options) {
                 target[i] = item;
             }
         });
-        if (options && typeof options.arrayLimit === 'number' && target.length > options.arrayLimit) {
+        if (options && typeof options.arrayLimit === 'number' && countElements(target) > options.arrayLimit) {
             if (options.throwOnLimitExceeded) {
                 throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
             }
@@ -95610,12 +95517,18 @@ var merge = function merge(target, source, options) {
         }
 
         if (isOverflow(source) && !isOverflow(acc)) {
-            markOverflow(acc, getMaxIndex(source));
+            markOverflow(acc, maxNumericIndex(acc, getMaxIndex(source)));
         }
         if (isOverflow(acc)) {
             var keyNum = parseInt(key, 10);
             if (String(keyNum) === key && keyNum >= 0 && keyNum > getMaxIndex(acc)) {
                 setMaxIndex(acc, keyNum);
+            }
+        }
+        if (isConflict(acc)) {
+            var conflictKey = parseInt(key, 10);
+            if (String(conflictKey) === key && conflictKey > getConflictIndex(acc)) {
+                markConflict(acc, conflictKey);
             }
         }
 
@@ -95631,6 +95544,13 @@ var assign = function assignSingleSource(target, source) {
 };
 
 var decode = function (str, defaultDecoder, charset) {
+    // With no `%` there is no escape to expand, in either charset: `unescape` has
+    // nothing to match, and `decodeURIComponent` is the identity on such a string
+    // (and cannot throw). So only `+` -> ' ' remains, and often not even that.
+    if (typeof str === 'string' && str.indexOf('%') === -1) {
+        return str.indexOf('+') === -1 ? str : str.replace(/\+/g, ' ');
+    }
+
     var strWithoutPlus = str.replace(/\+/g, ' ');
     if (charset === 'iso-8859-1') {
         // unescape never throws, no try...catch needed:
@@ -95642,6 +95562,57 @@ var decode = function (str, defaultDecoder, charset) {
     } catch (e) {
         return strWithoutPlus;
     }
+};
+
+var hasToPrimitive = typeof Symbol === 'function' && typeof Symbol.toPrimitive === 'symbol';
+var arrayJoin = Array.prototype.join;
+var arrayToString = Array.prototype.toString;
+var objectToString = Object.prototype.toString;
+
+// an object with no callable toString (eg, from JSON, or null-prototype) would make String() or join() throw,
+// so it becomes its primitive valueOf or else Object.prototype.toString; arrays are walked like join walks them,
+// copied only once an element changes, with an array already being joined becoming '' as engines do for cycles
+var toCoercible = function toCoercible(value, joining) {
+    if (!value || (typeof value !== 'object' && typeof value !== 'function')) {
+        return value;
+    }
+    if (hasToPrimitive && value[Symbol.toPrimitive] != null) {
+        return value;
+    }
+    if (isArray(value) && value.toString === arrayToString && value.join === arrayJoin) {
+        var ancestors = joining || getSideChannel();
+        if (ancestors.has(value)) {
+            return '';
+        }
+        ancestors.set(value, true);
+        var copy;
+        for (var i = 0; i < value.length; i += 1) {
+            var item = value[i];
+            var coerced = toCoercible(item, ancestors);
+            if (!copy && coerced !== item) {
+                copy = [];
+                for (var j = 0; j < i; j += 1) {
+                    copy[j] = value[j];
+                }
+            }
+            if (copy) {
+                copy[i] = coerced;
+            }
+        }
+        ancestors['delete'](value);
+        return copy || value;
+    }
+    if (typeof value.toString === 'function') {
+        return value;
+    }
+    var valueOf = value.valueOf;
+    if (typeof valueOf === 'function') {
+        var primitive = valueOf.call(value);
+        if (!primitive || (typeof primitive !== 'object' && typeof primitive !== 'function')) {
+            return String(primitive);
+        }
+    }
+    return objectToString.call(value);
 };
 
 var limit = 1024;
@@ -95659,13 +95630,15 @@ var encode = function encode(str, defaultEncoder, charset, kind, format) {
     if (typeof str === 'symbol') {
         string = Symbol.prototype.toString.call(str);
     } else if (typeof str !== 'string') {
-        string = String(str);
+        string = String(toCoercible(str));
     }
 
     if (charset === 'iso-8859-1') {
+        // `escape` leaves `+` untouched, but a literal `+` is decoded back to a space,
+        // so it must be percent-encoded to round-trip (the utf-8 path already does this).
         return escape(string).replace(/%u[0-9a-f]{4}/gi, function ($0) {
             return '%26%23' + parseInt($0.slice(2), 16) + '%3B';
-        });
+        }).replace(/\+/g, '%2B');
     }
 
     var out = '';
@@ -95686,11 +95659,12 @@ var encode = function encode(str, defaultEncoder, charset, kind, format) {
                 c === 0x2D // -
                 || c === 0x2E // .
                 || c === 0x5F // _
-                || c === 0x7E // ~
+                || (c === 0x7E && format !== formats.WHATWG) // ~
                 || (c >= 0x30 && c <= 0x39) // 0-9
                 || (c >= 0x41 && c <= 0x5A) // a-z
                 || (c >= 0x61 && c <= 0x7A) // A-Z
                 || (format === formats.RFC1738 && (c === 0x28 || c === 0x29)) // ( )
+                || (format === formats.WHATWG && c === 0x2A) // *
             ) {
                 arr[arr.length] = segment.charAt(i);
                 continue;
@@ -95714,13 +95688,19 @@ var encode = function encode(str, defaultEncoder, charset, kind, format) {
                 continue;
             }
 
-            i += 1;
-            c = 0x10000 + (((c & 0x3FF) << 10) | (segment.charCodeAt(i) & 0x3FF));
+            var next = segment.charCodeAt(i + 1);
+            if (c <= 0xDBFF && next >= 0xDC00 && next <= 0xDFFF) {
+                i += 1;
+                c = 0x10000 + (((c & 0x3FF) << 10) | (next & 0x3FF));
 
-            arr[arr.length] = hexTable[0xF0 | (c >> 18)]
-                + hexTable[0x80 | ((c >> 12) & 0x3F)]
-                + hexTable[0x80 | ((c >> 6) & 0x3F)]
-                + hexTable[0x80 | (c & 0x3F)];
+                arr[arr.length] = hexTable[0xF0 | (c >> 18)]
+                    + hexTable[0x80 | ((c >> 12) & 0x3F)]
+                    + hexTable[0x80 | ((c >> 6) & 0x3F)]
+                    + hexTable[0x80 | (c & 0x3F)];
+            } else {
+                // a lone surrogate has no UTF-8 encoding; like `URLSearchParams` and `TextEncoder`, emit U+FFFD
+                arr[arr.length] = '%EF%BF%BD';
+            }
         }
 
         out += arr.join('');
@@ -95817,7 +95797,9 @@ module.exports = {
     isRegExp: isRegExp,
     markOverflow: markOverflow,
     maybeMap: maybeMap,
-    merge: merge
+    merge: merge,
+    setProperty: setProperty,
+    toCoercible: toCoercible
 };
 
 
